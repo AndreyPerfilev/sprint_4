@@ -1,8 +1,8 @@
 import time
 
 import allure
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support import expected_conditions as EC, expected_conditions
+
+from selenium.webdriver.support import  expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
 
 
