@@ -1,23 +1,15 @@
 import time
-
 import allure
-
-from selenium.webdriver.support import  expected_conditions
+from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage(object):
-    def __init__(self, driver, base_url='https://qa-scooter.praktikum-services.ru'):
-        self.base_url = base_url
+    def __init__(self, driver):
         self.driver = driver
-        self.timeout = 30
 
     def find_element(self, *locator):
         return self.driver.find_element(*locator)
-
-    @allure.step('Открываем главную страницу')
-    def open(self):
-        self.driver.get(self.base_url)
 
     def click_on_element(self, locator):
         self.driver.find_element(*locator).click()
@@ -38,7 +30,6 @@ class BasePage(object):
 
     def wait_element(self, locator):
         WebDriverWait(self.driver, 3).until(expected_conditions.visibility_of_element_located(locator))
-
 
     @allure.step('Получаем текущий URL')
     def get_url(self):
